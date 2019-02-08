@@ -29,8 +29,18 @@ public class PlayerAmmo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            int score = collision.gameObject.GetComponent<EnemyBehavior>().score;
             Destroy(collision.gameObject);
             Destroy(gameObject);
+            player.addScore(score);
+            player.flipAmmoStatus();
+        }
+        else if (collision.gameObject.CompareTag("UFO"))
+        {
+            int score = collision.gameObject.GetComponent<UFOBehavior>().score;
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            player.addScore(score);
             player.flipAmmoStatus();
         }
         else if (collision.gameObject.CompareTag("Wall"))

@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 763325216309901121}
   - component: {fileID: 6966900052937473271}
   - component: {fileID: 4057278155687545246}
-  - component: {fileID: 7148552059087786476}
+  - component: {fileID: 169114600}
   m_Layer: 0
   m_Name: FrogEnemy
-  m_TagString: Enemy
+  m_TagString: UFO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 763325216309901120}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.47, y: 3.52, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -136,7 +136,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7148552059087786476
+--- !u!114 &169114600
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -145,11 +145,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 763325216309901120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3551b6403b6815f43b32e599638588de, type: 3}
+  m_Script: {fileID: 11500000, guid: 3e8a61d08c6244c3e90dbd8e3ae0923d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  side: 0
-  ammoPrefab: {fileID: 5550941178232772007, guid: 9972a205b36a16b40b41386c23406194,
-    type: 3}
-  ammoSpeed: 3
-  shootCD: 1
+  moveSpeed: 0
+  score: 150

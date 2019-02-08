@@ -12,6 +12,7 @@ public class MyIntEvent : UnityEvent<int>
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private MyIntEvent playerKilled;
+    [SerializeField] private MyIntEvent scoreChanged;
     [SerializeField] private GameObject ammoPrefab;
     [SerializeField] private float speed;
     private Rigidbody2D rb;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     // Player life
     private int life;
+    private int score;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,13 @@ public class PlayerController : MonoBehaviour
         ammoAlive = !ammoAlive;
     }
 
+    // Function to add score
+    public void addScore(int amount)
+    {
+        score += amount;
+        scoreChanged.Invoke(score);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
@@ -63,7 +72,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ammo"))
         {
             life--;
+            Destroy(collision.gameObject);
+            StartCoroutine(fadeInAndOut(0.1f));
             playerKilled.Invoke(life);
         }
+    }
+
+    IEnumerator fadeInAndOut(float time)
+    {
+        Time.timeScale = 0.3f;
+        gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, .3f);
+        yield return new WaitForSeconds(time);
+        gameObject.GetComponent<Renderer>().material.color = new Color(1f, 1f, 1f, 1f);
+        Time.timeScale = 1;
     }
 }
