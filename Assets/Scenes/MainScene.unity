@@ -588,7 +588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This game is so addictive(Resume)
+  m_Text: Resume
 --- !u!222 &325777031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -965,7 +965,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I have enought shit like this!(Quit)
+  m_Text: Quit
 --- !u!222 &736650136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I have enought shit like this!(Quit)
+  m_Text: Quit
 --- !u!222 &908757320
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: I have enought shit like this!(Quit)
+  m_Text: Quit
 --- !u!222 &1377705774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1902,7 +1902,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This game is too easy(Next level)
+  m_Text: Next Level
 --- !u!222 &1529540388
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2224,7 +2224,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: My hand just slipped(Restart)
+  m_Text: Restart
 --- !u!222 &1906715604
 CanvasRenderer:
   m_ObjectHideFlags: 0
