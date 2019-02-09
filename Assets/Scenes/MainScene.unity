@@ -1751,6 +1751,8 @@ MonoBehaviour:
   ammoPrefab: {fileID: 3336301587999972493, guid: 77130e6dec6f48f4db5da270053cded2,
     type: 3}
   speed: 6
+  shieldPrefab: {fileID: 2894202336177384616, guid: 85138f330bf707f439729d64d87357fe,
+    type: 3}
 --- !u!1 &1377705771
 GameObject:
   m_ObjectHideFlags: 0
