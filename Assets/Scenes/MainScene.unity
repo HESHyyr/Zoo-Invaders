@@ -402,7 +402,7 @@ GameObject:
   - component: {fileID: 318427154}
   - component: {fileID: 318427153}
   m_Layer: 5
-  m_Name: RestartButton
+  m_Name: NextLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -469,7 +469,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1934116586}
-        m_MethodName: Restart
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -588,7 +588,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Resume
+  m_Text: This game is so addictive(Resume)
 --- !u!222 &325777031
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -879,7 +879,6 @@ MonoBehaviour:
   - {fileID: 3676516026972443818, guid: 4cd122e47dbb1944891a61e0892c508f, type: 3}
   moveCD: 0
   moveSpeed: 0
-  shootCD: 0
   ufoCD: 0
   gameWin:
     m_PersistentCalls:
@@ -966,7 +965,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: I have enought shit like this!(Quit)
 --- !u!222 &736650136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1045,7 +1044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: I have enought shit like this!(Quit)
 --- !u!222 &908757320
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1635,7 +1634,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 49227ebba9377634fa18c147469028bb, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1822,7 +1821,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: I have enought shit like this!(Quit)
 --- !u!222 &1377705774
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1901,7 +1900,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play Again?
+  m_Text: This game is too easy(Next level)
 --- !u!222 &1529540388
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2223,7 +2222,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Play Again?
+  m_Text: My hand just slipped(Restart)
 --- !u!222 &1906715604
 CanvasRenderer:
   m_ObjectHideFlags: 0

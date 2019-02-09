@@ -33,7 +33,7 @@ public class PlayerAmmo : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             player.addScore(score);
-            player.flipAmmoStatus();
+            player.ammoReady();
         }
         else if (collision.gameObject.CompareTag("UFO"))
         {
@@ -41,12 +41,12 @@ public class PlayerAmmo : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
             player.addScore(score);
-            player.flipAmmoStatus();
+            player.ammoReady();
         }
         else if (collision.gameObject.CompareTag("Wall"))
         {
             Destroy(gameObject);
-            player.flipAmmoStatus();
+            player.ammoReady();
         }
     }
 }

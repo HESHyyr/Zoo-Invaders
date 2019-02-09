@@ -12,11 +12,12 @@ public class EnemyManager : MonoBehaviour
 
     [SerializeField] private float moveCD;
     [SerializeField] private float moveSpeed;
-    [SerializeField] private float shootCD;
     [SerializeField] private float ufoCD;
     private float lastShoot;
     private float gameTime;
     private float ufoTime;
+    private float shootCD;
+    private List<float> shootCDRange;
 
     // Distance where the enemy group need to make a direction change
     private float leftMost;
@@ -43,22 +44,24 @@ public class EnemyManager : MonoBehaviour
                     enemyPrefab = enemyPrefabs[6];
                 else
                     enemyPrefab = enemyPrefabs[0];
-                GameObject enemy = Instantiate(enemyPrefab, new Vector2(-10.5f + column * 1.8f, 6.5f - row * 1.8f), Quaternion.identity);
+                GameObject enemy = Instantiate(enemyPrefab, new Vector2(-10.5f + column * 2.0f, LevelInfo.enemyHeight - row * 2.0f), Quaternion.identity);
                 enemy.transform.parent = gameObject.transform;
                 newColumn.Add(enemy);
             }
             enemyGroup.Add(newColumn);
         }
 
-        moveCD = 1.0f;
+        moveCD = LevelInfo.moveCD;
         moveSpeed = 1.0f;
         gameTime = Time.time;
 
         leftMost = -5.0f;
-        rightMost = 7.6f;
+        rightMost = 6.0f;
         canAdvance = true;
 
-        shootCD = 2.0f;
+        shootCDRange = new List<float>(LevelInfo.shootCDRange);
+        shootCD = Random.Range(shootCDRange[0], shootCDRange[1]);
+
         lastShoot = Time.time;
 
         ufoTime = Time.time;
@@ -114,6 +117,7 @@ public class EnemyManager : MonoBehaviour
                     break;
                 }
             }
+            shootCD = Random.Range(shootCDRange[0], shootCDRange[1]);
         }
 
         // Instantiate UFO
@@ -131,6 +135,9 @@ public class EnemyManager : MonoBehaviour
     {
         moveSpeed = -moveSpeed;
         transform.Translate(new Vector2(0, -0.5f));
+        moveCD = moveCD - 0.05f;
+        shootCDRange[0] = shootCDRange[0] - 0.2f;
+        shootCDRange[1] = shootCDRange[1] - 0.2f;
     }
 
     // Function used for deleting side columns that are empty and change the side edge
@@ -149,7 +156,7 @@ public class EnemyManager : MonoBehaviour
         if (leftEmpty)
         {
             enemyGroup.RemoveAt(0);
-            leftMost = leftMost - 1.8f;
+            leftMost = leftMost - 2.0f;
         }
 
         bool rightEmpty = true;
@@ -165,7 +172,7 @@ public class EnemyManager : MonoBehaviour
         if (rightEmpty)
         {
             enemyGroup.RemoveAt(enemyGroup.Count - 1);
-            rightMost = rightMost + 1.8f;
+            rightMost = rightMost + 2.0f;
         }
     }
 

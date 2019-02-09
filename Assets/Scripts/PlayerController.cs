@@ -15,21 +15,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private MyIntEvent scoreChanged;
     [SerializeField] private GameObject ammoPrefab;
     [SerializeField] private float speed;
+    [SerializeField] private GameObject shieldPrefab;
     private Rigidbody2D rb;
 
     // Boolean to keep tracking whether the player has shooted and the taco ammo is not destroyed 
     private bool ammoAlive;
-
-    // Player life
-    private int life;
-    private int score;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         ammoAlive = false;
-        life = 3;
+
+        // Generate shields
+        Instantiate(shieldPrefab, new Vector2(-10.65f,-5.8f), Quaternion.identity);
+        Instantiate(shieldPrefab, new Vector2(-3.65f, -5.8f), Quaternion.identity);
+        Instantiate(shieldPrefab, new Vector2(3.65f, -5.8f), Quaternion.identity);
+        Instantiate(shieldPrefab, new Vector2(10.65f, -5.8f), Quaternion.identity);
     }
 
     // Update is called once per frame
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, 0);
         if (Input.GetKeyDown("space") && !ammoAlive)
             shoot();
+        //Debug.Log(ammoAlive);
 
     }
 
@@ -50,31 +53,26 @@ public class PlayerController : MonoBehaviour
     }
 
     // Function to flip the value of ammoAlive
-    public void flipAmmoStatus()
+    public void ammoReady()
     {
-        ammoAlive = !ammoAlive;
+        ammoAlive = false;
     }
 
     // Function to add score
     public void addScore(int amount)
     {
-        score += amount;
-        scoreChanged.Invoke(score);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
+        LevelInfo.score += amount;
+        scoreChanged.Invoke(LevelInfo.score);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ammo"))
         {
-            life--;
+            LevelInfo.life--;
             Destroy(collision.gameObject);
             StartCoroutine(fadeInAndOut(0.1f));
-            playerKilled.Invoke(life);
+            playerKilled.Invoke(LevelInfo.life);
         }
     }
 
